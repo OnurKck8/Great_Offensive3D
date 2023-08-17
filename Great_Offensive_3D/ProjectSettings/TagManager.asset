@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Rotate
+  - Area
+  - Spawn
+  - Flag
+  - Target
   layers:
   - Default
   - TransparentFX

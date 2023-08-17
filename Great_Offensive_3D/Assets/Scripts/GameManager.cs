@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    bool isPlayActive = false;
-   
-    void Start()
+    public bool isPlayActive = false;
+    public GameObject spawnBoat;
+
+    void Awake()
     {
-      
+        if (!isPlayActive)
+        {
+            Time.timeScale = 0;
+        }
     }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -24,6 +29,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Time.timeScale = 1;
+
         }
     }
 

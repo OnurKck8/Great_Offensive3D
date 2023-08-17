@@ -18,7 +18,7 @@ public class Fire : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag=="Enemy")
+        if(other.tag=="Enemy" || other.tag=="Rotate")
         {
             Destroy(other.gameObject,1f);
             Destroy(gameObject);
