@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7100949195662765385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8598721987687011250}
+  - component: {fileID: 4703342609628804395}
+  - component: {fileID: 5658630810634208668}
+  - component: {fileID: 4237406452270726056}
+  - component: {fileID: 4723300821250242202}
+  m_Layer: 0
+  m_Name: ak47
+  m_TagString: Gun
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8598721987687011250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7100949195662765385}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.20575294, y: -0.70385045, z: -0.16217506, w: 0.6602724}
+  m_LocalPosition: {x: -18.446232, y: 14.610238, z: -0.007168174}
+  m_LocalScale: {x: 10, y: 9, z: 6.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: -30, y: -95, z: 5}
+--- !u!33 &4703342609628804395
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7100949195662765385}
+  m_Mesh: {fileID: -3537709356157935800, guid: 9830c34f653b2904babca8918f3ed257, type: 3}
+--- !u!23 &5658630810634208668
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7100949195662765385}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -8583780622465393609, guid: 9830c34f653b2904babca8918f3ed257, type: 3}
+  - {fileID: 1110233775959259594, guid: 9830c34f653b2904babca8918f3ed257, type: 3}
+  - {fileID: 7993982598810627253, guid: 9830c34f653b2904babca8918f3ed257, type: 3}
+  - {fileID: 7498461928983958705, guid: 9830c34f653b2904babca8918f3ed257, type: 3}
+  - {fileID: -541708846208547136, guid: 9830c34f653b2904babca8918f3ed257, type: 3}
+  - {fileID: -5998004595915773402, guid: 9830c34f653b2904babca8918f3ed257, type: 3}
+  - {fileID: -2813337366143557646, guid: 9830c34f653b2904babca8918f3ed257, type: 3}
+  - {fileID: 725804396391725484, guid: 9830c34f653b2904babca8918f3ed257, type: 3}
+  - {fileID: -8693172909504858975, guid: 9830c34f653b2904babca8918f3ed257, type: 3}
+  - {fileID: -7198559261415225722, guid: 9830c34f653b2904babca8918f3ed257, type: 3}
+  - {fileID: -4246479402191905792, guid: 9830c34f653b2904babca8918f3ed257, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4237406452270726056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7100949195662765385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f78df41c9083be469547ce1b06c5842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: 47
+  rBulletCount: 47
+--- !u!95 &4723300821250242202
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7100949195662765385}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d2c30c085a9f78e4da6df1b2e8809b61, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -153,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   rotateBoat: {fileID: 3704228318071870578}
+  greekSoldier: []
 --- !u!95 &3704228318071870578
 Animator:
   serializedVersion: 5

@@ -6,9 +6,15 @@ public class Fire : MonoBehaviour
 {
     public float speed;
     public ParticleSystem blood;
+    GameManager gm;
+
+    public void Start()
+    {
+        gm = GameObject.FindGameObjectWithTag("Area").GetComponent<GameManager>();
+    }
     void Update()
     {
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 2.25f);
     }
 
     void FixedUpdate()
@@ -18,11 +24,12 @@ public class Fire : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.tag=="Enemy" || other.tag=="Rotate")
+        if(other.tag=="Enemy")
         {
             Destroy(other.gameObject,1f);
             Destroy(gameObject);
             Instantiate(blood, transform.position, Quaternion.identity);
+            gm.money += 100;
         }
     }
 }

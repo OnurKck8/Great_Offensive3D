@@ -10,6 +10,7 @@ TagManager:
   - Spawn
   - Flag
   - Target
+  - Gun
   layers:
   - Default
   - TransparentFX
