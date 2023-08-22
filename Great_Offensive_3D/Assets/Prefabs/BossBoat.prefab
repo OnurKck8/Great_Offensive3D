@@ -842,8 +842,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 26, y: 24.21003, z: 67.020836}
-  m_Center: {x: 0, y: 31.827217, z: 0}
+  m_Size: {x: 27, y: 62, z: 40}
+  m_Center: {x: 0, y: 37, z: 10}
 --- !u!114 &8291223178289389159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -857,6 +857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  bossHealth: 0
   myAnim: {fileID: 2143247679360120583}
   isGameOver: 0
 --- !u!54 &2161499988350251844

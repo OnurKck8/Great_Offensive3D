@@ -8,6 +8,7 @@ public class SoldierController : MonoBehaviour
     GameObject flag,target;
     public Animator myAnim;
     public bool isGameOver = false;
+    bool enemyTag = false;
     GameManager gm;
     void Start()
     {
@@ -20,17 +21,29 @@ public class SoldierController : MonoBehaviour
 
         if (Vector3.Distance(transform.position, target.transform.position) > 0.85f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
-            transform.LookAt(target.transform);
+            if(enemyTag == false)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+                transform.LookAt(target.transform);
+            }
+            else
+            {
+                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 0);
+                transform.LookAt(target.transform);
+            }
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 0);
-            transform.LookAt(target.transform);
+            if(enemyTag==true)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 0);
+                transform.LookAt(target.transform);
+            }
+           
             if (isGameOver)
             {
                 flag.transform.Translate(new Vector3(0, -0.0085f, 0));
-                gm.flagFill.fillAmount -= 0.00020f;
+                gm.flagFill.fillAmount -= 0.000185f;
             }
         }
     }
@@ -57,5 +70,41 @@ public class SoldierController : MonoBehaviour
             myAnim.SetBool("Die", true);
             isGameOver = false;
         }
+
     }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            if (Vector3.Distance(transform.position, target.transform.position) <= 0.85f)
+            {
+                enemyTag = true;
+            }
+        }
+    }
+    public void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            if (Vector3.Distance(transform.position, target.transform.position) <= 0.85f)
+            {
+                enemyTag = false;
+            }
+        }
+    }
+
+    public void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            if (Vector3.Distance(transform.position, target.transform.position) <= 0.85f)
+            {
+                enemyTag = false;
+            }
+        }
+    }
+ 
+
+   
 }

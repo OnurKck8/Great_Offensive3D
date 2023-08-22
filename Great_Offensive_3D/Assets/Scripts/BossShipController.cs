@@ -51,7 +51,7 @@ public class BossShipController : MonoBehaviour
 
                 rotateBoat.SetBool("RotateBoat", true);
                 StartCoroutine(WaitBoat());
-                boatSound.Stop();
+                boatSound.volume=0.15f;
             }
 
         }

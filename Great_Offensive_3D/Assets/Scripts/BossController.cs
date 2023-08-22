@@ -43,6 +43,7 @@ public class BossController : MonoBehaviour
         if(bossHealth<=0)
         {
            
+            pasa.SetBool("Victory", true);
             StartCoroutine(WaitGameOver());
         }
     }
@@ -52,8 +53,7 @@ public class BossController : MonoBehaviour
         myAnim.SetBool("Dead", true);
         myAnim.SetBool("Attack", false);
         myAnim.SetBool("Runner", false);
-        pasa.SetBool("Victory", true);
-        yield return new WaitForSeconds(2.55f);
+        yield return new WaitForSeconds(2.5f);
         Destroy(gameObject);
         gm.isBossDestroy = true;
     }

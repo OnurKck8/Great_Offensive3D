@@ -33,6 +33,10 @@ public class ShipController : MonoBehaviour
             }
 
         }
+        else
+        {
+            boatSound.Stop();
+        }
 
     }
 
@@ -46,7 +50,7 @@ public class ShipController : MonoBehaviour
 
                 rotateBoat.SetBool("RotateBoat", true);
                 StartCoroutine(WaitBoat());
-                boatSound.Stop();
+                boatSound.volume=0.045f;
             }
            
         } 

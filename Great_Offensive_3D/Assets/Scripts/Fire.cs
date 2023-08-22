@@ -29,7 +29,8 @@ public class Fire : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(gameObject);
             GameObject bloodNew = Instantiate(blood, transform.position, Quaternion.identity);
-            Destroy(bloodNew,0.15f);
+            Destroy(bloodNew,0.1f);
+
             gm.money += 150;
             gm.myMoney.text = gm.money.ToString();
             gm.killInt += 1;

@@ -11,14 +11,20 @@ public class Shoot : MonoBehaviour
     public ParticleSystem fire;
     GunR gunr;
     public Animator pasaAni;
-
+    GameManager gm;
     [Header("Bullet")]
     public TextMeshProUGUI bulletCount;
     public GameObject reload;
+
+    public void Start()
+    {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
     void Update()
     {
         gunr = GameObject.FindGameObjectWithTag("Gun").GetComponent<GunR>();
         bulletCount.text = gunr.bullet.ToString();
+
 
         if (gunr.bullet != 0)
         {
@@ -32,17 +38,17 @@ public class Shoot : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if(gunr.bullet!=0)
+            if(gm.isPlayActive==true)
             {
-                Instantiate(bullet, point.transform.position, point.transform.rotation);
-                fire.Play();
-                gunr.bullet--;
-                gunr.fireSound.Play();
-                pasaAni.SetBool("Fire", true);  
+                if (gunr.bullet != 0)
+                {
+                    Instantiate(bullet, point.transform.position, point.transform.rotation);
+                    fire.Play();
+                    gunr.bullet--;
+                    gunr.fireSound.Play();
+                    pasaAni.SetBool("Fire", true);
+                }
             }
-
-           
-            
         }
         else
         {

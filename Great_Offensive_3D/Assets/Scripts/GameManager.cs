@@ -19,8 +19,7 @@ public class GameManager : MonoBehaviour
     public int killInt;
     int bestKillCount;
 
-    public AudioSource managerSound;
-    public AudioClip[] panelSound;
+    public AudioSource managerSound, panelSound;
 
     [Header("FailedPanel")]
     public TextMeshProUGUI bestKill,currentKill,killScore;
@@ -61,37 +60,39 @@ public class GameManager : MonoBehaviour
         }
 
         flagFill.fillAmount = 1;
+        
     }
-
-
+    void Start()
+    {
+        
+    }
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             isPlayActive = true;
-            managerSound.clip = panelSound[0];
-            managerSound.Play();
+           
         }
 
         if (isPlayActive)
         {
             Time.timeScale = 1;
+            
         }
         else
         {
             Time.timeScale = 0;
         }
 
-        if(flagFill.fillAmount==0 || isBossDestroy)
+        if (flagFill.fillAmount==0 || isBossDestroy)
         {
-            failedPanel.SetActive(true);          
+            failedPanel.SetActive(true);
+            managerSound.Stop();
             isPlayActive = false;
-
-            managerSound.clip = panelSound[1];
-            managerSound.Play();
-
-            
         }
+
+    
 
         killScore.text = killInt.ToString();
         currentKill.text = killInt.ToString();
@@ -185,5 +186,6 @@ public class GameManager : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene(0);
+        panelSound.Stop();
     }
 }
