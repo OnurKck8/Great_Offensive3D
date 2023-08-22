@@ -11,6 +11,8 @@ TagManager:
   - Flag
   - Target
   - Gun
+  - Boss
+  - Fire
   layers:
   - Default
   - TransparentFX

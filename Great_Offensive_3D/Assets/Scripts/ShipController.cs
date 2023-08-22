@@ -9,51 +9,70 @@ public class ShipController : MonoBehaviour
     GameManager gm;
     
     public GameObject[] greekSoldier;
+    AudioSource boatSound;
+    bool soundPlay = true;
 
-    public void Start()
-    {
+    void Start()
+     {
         gm = GameObject.FindGameObjectWithTag("Area").GetComponent<GameManager>();
-        
+        boatSound = GetComponent<AudioSource>();
+
+      
     }
+
     void Update()
     {
-        if(gm.isPlayActive==true)
+        if(gm.isPlayActive==true && gm.isBossDestroy==false)
         {
             transform.Translate(Vector3.down * speed);
+
+            if (soundPlay)
+            {
+                boatSound.Play();
+                soundPlay = false;
+            }
+
         }
-       
+
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.tag=="Rotate")
+        if(gm.isBossDestroy==false)
         {
-            speed = 0;
-            rotateBoat.SetBool("RotateBoat", true);
-            StartCoroutine(WaitBoat());
-        }
+            if (other.tag == "Rotate")
+            {
+                speed = 0;
 
-        if(other.tag=="Spawn")
-        {
-            Destroy(gameObject);
-
-            Instantiate(gm.spawnBoat, transform.position, Quaternion.Euler(-90, 0,-90));
-        }
+                rotateBoat.SetBool("RotateBoat", true);
+                StartCoroutine(WaitBoat());
+                boatSound.Stop();
+            }
+           
+        } 
         
     }
 
+   
+
     public IEnumerator WaitBoat()
     {
+        
         yield return new WaitForSeconds(1f);
-        for(int i=0;i<greekSoldier.Length;i++)
+
+        for (int i = 0; i < greekSoldier.Length; i++)
         {
             Animator myAnim = greekSoldier[i].GetComponent<Animator>();
             myAnim.SetBool("Runner", true);
-            greekSoldier[i].GetComponent<SoldierController>().speed = 30f;
+            greekSoldier[i].GetComponent<SoldierController>().speed = 25f;
             greekSoldier[i].transform.SetParent(null);
-           
         }
+
         yield return new WaitForSeconds(5f);
         speed = 1;
+        boatSound.Play();
+
+        yield return new WaitForSeconds(9f);
+        Destroy(gameObject);
     }
 }

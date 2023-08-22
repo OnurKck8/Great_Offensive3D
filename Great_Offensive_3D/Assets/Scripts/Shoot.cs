@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Shoot : MonoBehaviour
 {
@@ -9,16 +10,44 @@ public class Shoot : MonoBehaviour
     public GameObject point;
     public ParticleSystem fire;
     GunR gunr;
+    public Animator pasaAni;
 
-    void Start()
+    [Header("Bullet")]
+    public TextMeshProUGUI bulletCount;
+    public GameObject reload;
+    void Update()
     {
         gunr = GameObject.FindGameObjectWithTag("Gun").GetComponent<GunR>();
-    }
-    public void ShootFire()
-    {
+        bulletCount.text = gunr.bullet.ToString();
 
-        Instantiate(bullet, point.transform.position, point.transform.rotation);
-        fire.Play();
-        gunr.bullet--;
+        if (gunr.bullet != 0)
+        {
+            reload.SetActive(false);
+        }
+        else
+        {
+            bulletCount.text = "0";
+            reload.SetActive(true);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if(gunr.bullet!=0)
+            {
+                Instantiate(bullet, point.transform.position, point.transform.rotation);
+                fire.Play();
+                gunr.bullet--;
+                gunr.fireSound.Play();
+                pasaAni.SetBool("Fire", true);  
+            }
+
+           
+            
+        }
+        else
+        {
+            pasaAni.SetBool("Fire", false);
+        }
+        
     }
 }

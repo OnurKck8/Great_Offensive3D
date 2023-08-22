@@ -7,22 +7,36 @@ public class GunR : MonoBehaviour
     Animator myAnim;
     public int bullet;
     public int rBulletCount;
+
+    public AudioSource fireSound;
+    public AudioClip[] reloadsound;
+    GameManager gm;
     void Start()
     {
         myAnim = this.gameObject.GetComponent<Animator>();
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(bullet==0)
+        if(bullet <= rBulletCount)
         {
-            myAnim.SetBool("R", true);
-            bullet = rBulletCount;
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                myAnim.SetBool("R", true);
+                bullet = rBulletCount;
+                fireSound.clip=reloadsound[1];
+                fireSound.Play();
+                gm.money -= 50;
+            }
+
+            if(Input.GetMouseButtonDown(0))
+            {
+                myAnim.SetBool("R", false);
+                fireSound.clip = reloadsound[0];
+            }
         }
-        else
-        {
-            myAnim.SetBool("R", false);
-        }
+        
+
     }
 }
