@@ -88,7 +88,6 @@ public class GameManager : MonoBehaviour
         if (flagFill.fillAmount==0 || isBossDestroy)
         {
             failedPanel.SetActive(true);
-            managerSound.Stop();
             isPlayActive = false;
         }
 
@@ -186,6 +185,6 @@ public class GameManager : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene(0);
-        panelSound.Stop();
+        
     }
 }
